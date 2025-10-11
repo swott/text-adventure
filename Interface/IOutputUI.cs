@@ -1,6 +1,6 @@
 namespace Adventure
 {
-    internal class CharacterStats
+    internal interface IOutputUI
     {
     }
 }

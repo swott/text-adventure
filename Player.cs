@@ -1,9 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Adventure
 {
     internal class Player
@@ -12,23 +6,20 @@ namespace Adventure
         public string Sex;
         /*public CharacterStats Stats;*/
 
-
-        private Player(string nickname, string sex) 
+        private Player(string nickname, string sex)
         {
             this.Nickname = nickname;
             this.Sex = sex;
         }
 
-        public static Player CreateNew()
+        public static Player CreateNew(IInputUI input)
         {
-            string nickname = InputHelper.InputDebug("Vidím jen stín, kdo jsi?\n");
+            string nickname = input.GetInput("Vidím jen stín, kdo jsi?\n");
 
-            string[] genders = [ "On", "Ona", "Ono" ];
-            string sex = InputHelper.SelectOption("Vyber pohlaví: ", genders);
+            string[] genders = ["On", "Ona", "Ono"];
+            string sex = input.SelectOption("Vyber pohlaví: ", genders);
 
             return new Player(nickname, sex);
         }
-
     }
-
 }
