@@ -4,6 +4,6 @@ namespace Adventure
     {
         string GetInput(string prompt);
 
-        string SelectOption(string heading, string[] options);
+        string SelectOption(string heading, string[] options, bool numbersOnly = false);
     }
 }

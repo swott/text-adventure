@@ -2,29 +2,31 @@ namespace Adventure
 {
     internal class BaseConsoleOutput : IBaseOutputUI
     {
-        public void StartMessage()
+        public void ShowMessage(string message)
         {
-            Console.WriteLine("Vítej ve hře.");
+            Console.WriteLine(message);
         }
-        public void EndMessage()
+
+        public void ShowTitle(string title)
         {
-            Console.WriteLine("Hra skončila, měj se!");
+            Console.WriteLine($"=== {title} ===");
+            Console.WriteLine();
         }
     }
 
     // Všechny možné výstupy o hráči, co se netýkají enemy
     internal class PlayerConsoleOutput : IPlayerOutputUI
     {
-        private readonly GenderTextDB _genderText;
+        private readonly PlayerTextDB _genderText;
 
-        public PlayerConsoleOutput(GenderTextDB genderText)
+        public PlayerConsoleOutput(PlayerTextDB genderText)
         {
             _genderText = genderText;
         }
 
         public void PlayerWelcome(string gender)
         {
-            string text = _genderText.GetAction(gender, "welcometest");
+            string text = _genderText.GetAction(gender, "welcome");
             Console.WriteLine($"{text}");
         }
     }

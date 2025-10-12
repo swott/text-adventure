@@ -1,6 +1,6 @@
 namespace Adventure
 {
-    internal class GenderTextDB
+    internal class PlayerTextDB
     {
         public string GetAction(string gender, string actionKey)
         {
@@ -12,9 +12,10 @@ namespace Adventure
 
             return (gender, actionKey) switch
             {
-                ("Ona", "welcometest") => "Ahoj ženo.",
-                ("Ono", "welcometest") => "Ahoj ono.",
-                (_, "welcometest") => "Ahoj muži.",
+                ("Žena", "welcome") => "Vítej, statečná ženo!",
+
+                ("Muž", "welcome") => "Vítej, statečný muži.",
+
                 _ => "Default nápis"
             };
         }

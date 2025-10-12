@@ -27,6 +27,7 @@ namespace Adventure
                 do
                 {
                     input = Console.ReadLine();
+
                     if (string.IsNullOrWhiteSpace(input))
                     {
                         Console.Write("Zkus psát znovu: ");
@@ -35,7 +36,7 @@ namespace Adventure
                 while (string.IsNullOrWhiteSpace(input));
 
                 // Debug logování
-                if (input.ToLower() == "debugon" || input.ToLower() == "debugoff")
+                if (string.Equals(input, "debugon", StringComparison.OrdinalIgnoreCase) || string.Equals(input, "debugoff", StringComparison.OrdinalIgnoreCase))
                 {
                     _debug.ToggleDebug(input);
                     continue;
@@ -48,7 +49,7 @@ namespace Adventure
             }
         }
 
-        public string SelectOption(string heading, string[] options)
+        public string SelectOption(string heading, string[] options, bool numbersOnly = false)
         {
             Console.WriteLine(heading);
             for (int i = 0; i < options.Length; i++)
@@ -58,10 +59,19 @@ namespace Adventure
 
             while (true)
             {
-                string choose = GetInput($"Vyber číslo (1-{options.Length}, nebo název: ");
+                // U textu s diakritikou, kde se vypíná možnost zadávat text
+                string choose;
+                if (numbersOnly)
+                {
+                    choose = GetInput($"Vyber číslo (1-{options.Length}): ");
+                }
+                else
+                {
+                    choose = GetInput($"Vyber číslo (1-{options.Length}), nebo název: ");
+                }
 
                 // Debug toggle v inputu
-                if (choose.ToLower() == "debugon" || choose.ToLower() == "debugoff")
+                if (string.Equals(choose, "debugon", StringComparison.OrdinalIgnoreCase) || choose.Equals("debugoff", StringComparison.CurrentCultureIgnoreCase))
                 {
                     _debug.ToggleDebug(choose);
                     continue;
@@ -76,16 +86,26 @@ namespace Adventure
                 }
 
                 // Textový výběr
-                foreach (string option in options)
+                if (!numbersOnly)
                 {
-                    if (choose.ToLower() == option.ToLower())
+                    foreach (string option in options)
                     {
-                        _debug.Log($"Vybráno: '{choose}' (text)");
-                        return option;
+                        if (string.Equals(choose, option, StringComparison.OrdinalIgnoreCase))
+                        {
+                            _debug.Log($"Vybráno: '{choose}' (text)");
+                            return option;
+                        }
                     }
                 }
-
-                Console.WriteLine("Neplatná volba!");
+                // Chybové hlášky
+                if (numbersOnly)
+                {
+                    Console.WriteLine($"Neplatná volba, zadej prosím číslo od 1 do {options.Length}.");
+                }
+                else
+                {
+                    Console.WriteLine("Neplatná volba!");
+                }
             }
         }
     }

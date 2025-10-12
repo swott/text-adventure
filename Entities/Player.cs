@@ -15,17 +15,17 @@ namespace Adventure
             Stats = new CharacterStats(playerClass);        // Vezme si data od té horní, a vypočítá zbytek
         }
 
-        public static Player CreateNew(IInputUI input)
+        public static Player CreateNew(IInputUI input, IBaseOutputUI output, GameTextDB gameText)
         {
-            string nickname = input.GetInput("Vidím jen stín, kdo jsi?\n");
-
-            string[] genders = ["On", "Ona", "Ono"];
-            string gender = input.SelectOption("Vyber pohlaví: ", genders);
+            string nickname = input.GetInput(gameText.CreateNicknameStart());
+            output.ShowMessage(gameText.CreateNicknameEnd(nickname));
+            string[] genders = ["Muž", "Žena"];
+            string gender = input.SelectOption(gameText.CreateGenderPrompt(), genders, numbersOnly: true);
 
             // Temporary, jen na vidění v DEBUG logu
             BaseClass playerClass = new BaseClass(maxHP: 20, currentHP: 10, armor: 5);
 
-            return new Player(nickname, gender,playerClass);
+            return new Player(nickname, gender, playerClass);
         }
     }
 }
