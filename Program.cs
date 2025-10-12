@@ -6,10 +6,9 @@ namespace Adventure
         {
             IDebugUI debug = new ConsoleDebug();
             IInputUI input = new ConsoleInput(debug);
-            // TODO: Udělat output
-            // IOutputUI output = new ConsoleOutput();
+            IBaseOutputUI output = new BaseConsoleOutput();
 
-            BaseGame game = new BaseGame(input, debug);
+            BaseGame game = new BaseGame(input, debug, output);
             game.GameStart();
         }
     }

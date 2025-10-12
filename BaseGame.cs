@@ -4,24 +4,26 @@ namespace Adventure
     {
         private readonly IInputUI _input;
 
-        // NOTE : Output zde
-        // private readonly IOutputUI _output;
+        private readonly IBaseOutputUI _output;
         private readonly IDebugUI _debug;
 
-        private string GameName = "Název hry";
+        
 
-        public BaseGame(IInputUI input, IDebugUI debug)
+        public BaseGame(IInputUI input, IDebugUI debug, IBaseOutputUI output)
         {
             _input = input;
             _debug = debug;
+            _output = output;
         }
 
         public void GameStart()                                 // Zatím v podstatě  jen název hry, zapnutí hráče a vypsání jeho nickname
         {
-            Console.WriteLine($"Vítej ve hře: {GameName}");
+            _output.StartMessage();
             Player pchar = Player.CreateNew(_input);
             _debug.Log($"Vytvořen hráč: {pchar.Nickname}");
             Console.WriteLine($"Vítej, {pchar.Nickname}!");
+            _output.EndMessage();
+
         }
     }
 }
