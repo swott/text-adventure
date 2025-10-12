@@ -22,7 +22,8 @@ namespace Adventure
         {
             _baseOutput.StartMessage();
             Player pchar = Player.CreateNew(_input);
-            _debug.Log($"Vytvořen hráč: {pchar.Nickname}, pohlavím {pchar.Gender}");
+            _debug.Log($"Name: {pchar.Nickname}, gender: {pchar.Gender}");
+            _debug.Log($"Test: {pchar.Stats.CurrentHP}/{pchar.Stats.MaxHP} HP, {pchar.Stats.Armor} armor");
 
             _playerOutput.PlayerWelcome(pchar.Gender);
             _baseOutput.EndMessage();
