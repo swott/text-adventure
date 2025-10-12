@@ -8,8 +8,8 @@ namespace Adventure
 
         private Player(string nickname, string sex)
         {
-            this.Nickname = nickname;
-            this.Sex = sex;
+            Nickname = nickname;
+            Sex = sex;
         }
 
         public static Player CreateNew(IInputUI input)
