@@ -3,13 +3,13 @@ namespace Adventure
     internal class Player
     {
         public string Nickname;
-        public string Sex;
+        public string Gender;
         /*public CharacterStats Stats;*/
 
-        private Player(string nickname, string sex)
+        private Player(string nickname, string gender)
         {
             Nickname = nickname;
-            Sex = sex;
+            Gender = gender;
         }
 
         public static Player CreateNew(IInputUI input)
@@ -17,9 +17,9 @@ namespace Adventure
             string nickname = input.GetInput("Vidím jen stín, kdo jsi?\n");
 
             string[] genders = ["On", "Ona", "Ono"];
-            string sex = input.SelectOption("Vyber pohlaví: ", genders);
+            string gender = input.SelectOption("Vyber pohlaví: ", genders);
 
-            return new Player(nickname, sex);
+            return new Player(nickname, gender);
         }
     }
 }

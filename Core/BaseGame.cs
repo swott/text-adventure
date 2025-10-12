@@ -3,27 +3,34 @@ namespace Adventure
     internal class BaseGame
     {
         private readonly IInputUI _input;
-
-        private readonly IBaseOutputUI _output;
+        private readonly IBaseOutputUI _baseOutput;
         private readonly IDebugUI _debug;
+        private readonly IPlayerOutputUI _playerOutput;
 
-        
 
-        public BaseGame(IInputUI input, IDebugUI debug, IBaseOutputUI output)
+
+        public BaseGame(IInputUI input, IDebugUI debug, IBaseOutputUI baseOutput, IPlayerOutputUI playerOutput)
         {
             _input = input;
             _debug = debug;
-            _output = output;
+            _baseOutput = baseOutput;
+            _playerOutput = playerOutput;
         }
 
-        public void GameStart()                                 // Zatím v podstatě  jen název hry, zapnutí hráče a vypsání jeho nickname
+        // Zatím v podstatě  jen název hry, zapnutí hráče a vypsání jeho nickname
+        public void GameStart()
         {
-            _output.StartMessage();
+            _baseOutput.StartMessage();
             Player pchar = Player.CreateNew(_input);
-            _debug.Log($"Vytvořen hráč: {pchar.Nickname}");
-            Console.WriteLine($"Vítej, {pchar.Nickname}!");
-            _output.EndMessage();
+            _debug.Log($"Vytvořen hráč: {pchar.Nickname}, pohlavím {pchar.Gender}");
 
+            _playerOutput.PlayerWelcome(pchar.Gender);
+            _baseOutput.EndMessage();
+
+            if(_debug.IsDebugEnabled())
+            {
+                _debug.ShowLastActions();
+            }
         }
     }
 }

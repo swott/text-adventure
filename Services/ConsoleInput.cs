@@ -41,7 +41,8 @@ namespace Adventure
                     continue;
                 }
 
-                _debug.Log($"[DEBUG] Input: '{input}' pro '{prompt}'");
+                string cleanPrompt = prompt.Replace("\n", " ");
+                _debug.Log($"Input: '{input}' pro '{cleanPrompt}'");
 
                 return input;
             }
