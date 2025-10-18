@@ -17,7 +17,7 @@
 
 - <a id="value-types"></a><span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
 
-  - <a id="integer"></a><span style="font-size: 16px;"> **Celočíselné (Integer types)** </span>
+  - <a id="integer"></a><span style="font-size: 16px;"> ***Celočíselné (Integer types)*** </span>
   
     1. `int`
   
@@ -34,7 +34,7 @@
        - pro **velmi velká** celá čísla
        - když `int` nestačí
   
-  - <a id="floating-point"></a><span style="font-size: 16px;"> **Desetinná čísla (Floating-point Types)** </span>
+  - <a id="floating-point"></a><span style="font-size: 16px;"> ***Desetinná čísla (Floating-point Types)*** </span>
 
     1. `double`
 
@@ -60,13 +60,13 @@
 
     2. `char`
 
-        - jeden Unicode znak
+        - **jeden** Unicode znak
 
 - <a id="user-defined-types"></a><span style="font-size: 16px"> **Uživatelské hodnotové typy (User-defined Value types)** </span>
 
     1. `struct`
 
-        - pro malé datové struktury (jako ID, pozice)
+        - pro **malé** datové struktury (**jako ID, pozice**)
         - chová se jako číslo - při přiřazení se kopíruje
         - použít pro data, která jsou jednoduchá a neměnná
 
