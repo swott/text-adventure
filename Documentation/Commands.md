@@ -1,10 +1,23 @@
 # Příkazy
 
+<span style="font-size: 16px;">**Obsah:**</span>
+<!-- TOC -->
+
+1. [Hodnotové typy](#value-types)
+
+    - [Celočíselné](#integer)
+    - [Desetinná čísla](#floating-point)
+
+2. [Logické a znakové typy](#boolean-character-types)
+
+3. [Uživatelské hodnotové typy](#user-defined-types)
+
+<!-- /TOC -->
 ## Datové typy
 
-- <span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
+- <a id="value-types"></a><span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
 
-  - <span style="font-size: 16px;"> **Celočíselné** </span>
+  - <a id="integer"></a><span style="font-size: 16px;"> **Celočíselné (Integer types)** </span>
   
     1. `int`
   
@@ -21,8 +34,7 @@
        - pro **velmi velká** celá čísla
        - když `int` nestačí
   
-
-  - <span style="font-size: 16px;"> **Desetinná čísla** </span>
+  - <a id="floating-point"></a><span style="font-size: 16px;"> **Desetinná čísla (Floating-point Types)** </span>
 
     1. `double`
 
@@ -40,7 +52,7 @@
 
         - jen <span style="font-size: 16px;"> **SPECIFICKÉ PŘÍLEŽITOSTI** </span>
 
-- <span style="font-size: 16px"> **Logické a znakové typy** </span>
+- <a id="boolean-character-types"></a><span style="font-size: 18px"> **Logické a znakové typy (Boolean & Character types)** </span>
 
     1. `bool`
 
@@ -50,7 +62,7 @@
 
         - jeden Unicode znak
 
-- <span style="font-size: 16px"> **Uživatelské hodnotové typy** </span>
+- <a id="user-defined-types"></a><span style="font-size: 16px"> **Uživatelské hodnotové typy (User-defined Value types)** </span>
 
     1. `struct`
 
