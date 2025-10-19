@@ -95,13 +95,13 @@
 
 - <a id="reference-types"></a><span style="font-size: 18px"> **Referenční typy (Reference types)** </span>
 
-    1. `string`
+    1. `string stringName = "Text";`
 
         - textový typ
         - i když se do něj napíše číslo, bere se jako text, ne int atd.
         - neměnný (immutable)
 
-    2. `class`
+    2. `class className { more code }`
 
         - uživatelský referenční typ
         - dědičnost, polymorfismus
