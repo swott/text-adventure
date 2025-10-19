@@ -1,4 +1,4 @@
-# Příkazy
+# Datové typy
 
 <a id="summary"></a><span style="font-size: 16px;">**Obsah:**</span>
 <!-- TOC -->
@@ -16,10 +16,8 @@
     - [Základní](#basic-reference-types)
     - [Kolekce a pole](#collections-arrays)
 
-3.
-
 <!-- /TOC -->
-## Datové typy
+## Rozdělení
 
 - <span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
 
@@ -187,7 +185,3 @@
          - použití na : nastavení, statistiky, vyhledávání atd
 
   <br>[Zpět na obsah](#summary)<br><br>
-
-## 2. Řízení toku programu
-
-## 3. Metody a funkce
