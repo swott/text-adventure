@@ -11,6 +11,7 @@
 <!-- /TOC -->
 
 ---
+
 ## Rozdělení
 
 - <a id="conditionals"></a><span style="font-size: 18px;"> ***Podmínky (Conditionals / Selection statements)*** </span>
@@ -48,7 +49,7 @@
         }
         ```
 
-       <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
   - **`switch`, `case`, `default`**
 
@@ -71,7 +72,7 @@
       - **Herní příklad**
 
         ```csharp
-        switch (playerstate)
+        switch (playerState)
         {
             case PlayerState.Running:
                 PlayRunAnimation();
@@ -85,7 +86,7 @@
         }
         ```
 
-    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
   - **Ternární operátor `? :`**
 
@@ -97,6 +98,7 @@
     - přehlednost
     - rychlejší psaní
 
+        <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
     - **Použití:**
       - jednoduchá podmínka
       - přiřazení hodnoty do proměnné
@@ -106,32 +108,37 @@
 
         - **Příklady správného použití:**
 
-        ```csharp
-        // Pokud je přes osmnáct, je dospělý
-        string message = (age >= 18) ? "Dospělý" : "Dítě"; 
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-        // Přiřazení hodnoty
-        int number = 10;
-        string result = (number > 5) ? "Větší než 5" : "Menší nebo rovno 5";
-        Console.WriteLine(result); // Vypíše: "Větší než 5"
+            ```csharp
+            // Pokud je přes osmnáct, je dospělý
+            string message = (age >= 18) ? "Dospělý" : "Dítě"; 
 
-        // S čísly
-        int score = 85;
-        string grade = (score >= 90) ? "A" : 
-                (score >= 80) ? "B" : 
-                (score >= 70) ? "C" : "F";
-        Console.WriteLine(grade); // Vypíše: "B"
+            // Přiřazení hodnoty
+            int number = 10;
+            string result = (number > 5) ? "Větší než 5" : "Menší nebo rovno 5";
+            Console.WriteLine(result); // Vypíše: "Větší než 5"
 
-        // Vrácení hodnoty z metody
-        public string EvenOrUneven(int number)
-        {
-        return (number % 2 == 0) ? "Sudé" : "Liché";
-        }  
-        ```
+            // S čísly
+            int score = 85;
+            string grade = (score >= 90) ? "A" : 
+                    (score >= 80) ? "B" : 
+                    (score >= 70) ? "C" : "F";
+            Console.WriteLine(grade); // Vypíše: "B"
+
+            // Vrácení hodnoty z metody
+            public string EvenOrUneven(int number)
+            {
+            return (number % 2 == 0) ? "Sudé" : "Liché";
+            }  
+            ```
 
         <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
     - **⚠️ Nepoužívat, když:**
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
       - podmínka je složitá
       - potřebuješ provést více příkazů
       - kód by byl hůře čitelný
@@ -140,58 +147,64 @@
 
         - **Příklady špatného použití**
 
-        ```csharp
+            <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-        // ⬇️ Když je potřeba provést více příkazů ⬇️
+            ```csharp
 
-        // Tohle NEFUNGUJE - TO může vracet jen hodnotu, ne provádět příkazy
-        // Použití je pouze if-else
-        bool jeAdmin = true;
-        jeAdmin ? (
-        Console.WriteLine("Vítejte admin"),
-        LogLoginAttempt(),
-        GrantPermissions()
-        ) : Console.WriteLine("Přístup odepřen");
+            // ⬇️ Když je potřeba provést více příkazů ⬇️
 
-        // ⬇️ Složitě vnořené podmínky ⬇️
+            // Tohle NEFUNGUJE - TO může vracet jen hodnotu, ne provádět příkazy
+            // Použití je pouze if-else
+            bool jeAdmin = true;
+            jeAdmin ? (
+            Console.WriteLine("Vítejte admin"),
+            LogLoginAttempt(),
+            GrantPermissions()
+            ) : Console.WriteLine("Přístup odepřen");
 
-        // Hůře čitelné, přehlednější s if-else
-        string result = (user != null) ? 
-               ((user.Age > 18) ? 
-               ((user.IsVerified) ? "Přístup povolen" : "Neověřený uživatel") : 
-               "Nedostatečný věk") : 
-               "Uživatel neexistuje";
+            // ⬇️ Složitě vnořené podmínky ⬇️
 
-        // ⬇️ Když je potřeba jen jedna větev (bez else) ⬇️
+            // Hůře čitelné, přehlednější s if-else
+            string result = (user != null) ? 
+                   ((user.Age > 18) ? 
+                   ((user.IsVerified) ? "Přístup povolen" : "Neověřený uživatel") : 
+                  "Nedostatečný věk") : 
+                   "Uživatel neexistuje";
 
-        // Špatně - vynucená else větev, i když není potřeba
-        string message = (errorCount > 0) ? $"Počet chyb: {errorCount}" : null;
-        if (message != null)
-        Console.WriteLine(message);
+            // ⬇️ Když je potřeba jen jedna větev (bez else) ⬇️
 
-        // ⬇️ Metody s VOID návratovým typem ⬇️
+            // Špatně - vynucená else větev, i když není potřeba
+            string message = (errorCount > 0) ? $"Počet chyb: {errorCount}" : null;
+            if (message != null)
+            Console.WriteLine(message);
 
-        // Špatně - TO musí vracet hodnotu
-        // Správně je if-else
-        (isValid) ? SaveToDatabase() : ShowError();
+            // ⬇️ Metody s VOID návratovým typem ⬇️
 
-        // ⬇️ Když podmínka mění stav více proměnných
+            // Špatně - TO musí vracet hodnotu
+            // Správně je if-else
+            (isValid) ? SaveToDatabase() : ShowError();
 
-        int successCount = 0;
-        int failCount = 0;
+            // ⬇️ Když podmínka mění stav více proměnných
 
-        // Hrozný kód - TO vrací hodnotu, která je ignorována
-        _ = (operationSucceeded) ? successCount++ : failCount++;
+            int successCount = 0;
+            int failCount = 0;
 
-        // ⬇️ Složité výpočty nebo volání metod ⬇️
+            // Hrozný kód - TO vrací hodnotu, která je ignorována
+            _ = (operationSucceeded) ? successCount++ : failCount++;
 
-        // Správně by to mělo být pomocí if-else rozloženo na části
-        var result = (x > 0) ?
-            Math.Sqrt(ComplexCalculatio(x) + AnotherComplexMethod(y)) :
-            ProcessNegativeValue(TransformInput(x, y));
-        ```
+            // ⬇️ Složité výpočty nebo volání metod ⬇️
 
-[Zpět na obsah](#summary)
+            // Správně by to mělo být pomocí if-else rozloženo na části
+            var result = (x > 0) ?
+                Math.Sqrt(ComplexCalculation(x) + AnotherComplexMethod(y)) :
+                ProcessNegativeValue(TransformInput(x, y));
+            ```
+
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+
+    [Zpět na obsah](#summary)
+
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 - <a id="loops"></a><span style="font-size: 18px;"> **Cykly (Loops / Iteration statements)** </span>
 <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
@@ -207,6 +220,8 @@
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
 
       - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
         ```csharp
         // Začni na 0, pokračuj dokud i < počtu nepřátel,
@@ -281,6 +296,8 @@
 
       - **Herní příklad:**
 
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
         ```csharp
         // Hráč musí zadat platné jméno (alespoň jednou se zeptá)
         string playerName;
@@ -294,22 +311,36 @@
         Console.WriteLine($"Vítej, {playerName}!");
         ```
 
-[Zpět na obsah](#summary)
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+
+    [Zpět na obsah](#summary)
+
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 - <a id="exception-handling"></a><span style="font-size: 18px;"> **Výjimky (Exception Handling / Exception-handling statements)** </span>
+<span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
   - B
   - B
   - B
 
-[Zpět na obsah](#summary)
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+
+    [Zpět na obsah](#summary)
+
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 - <a id="control-statemens"></a><span style="font-size: 18px;"> **Řídící příkazy (Control Statements / Jump statements)** </span>
+<span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
   1. B
   2. B
   3. B
 
+<span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+
 [Zpět na obsah](#summary)
+
+<span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 \| ⬅️[Datové typy](ValueTypes.md) \| ⬆️ [Zpět na seznam souborů](index.md) ⬆️ \| [Další kapitola - Programovací logika](ControlFlow.md)➡️ \|
