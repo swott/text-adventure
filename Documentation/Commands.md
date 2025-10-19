@@ -1,16 +1,20 @@
 # Příkazy
 
-<span style="font-size: 16px;">**Obsah:**</span>
+<a id="summary"></a><span style="font-size: 16px;">**Obsah:**</span>
 <!-- TOC -->
 
 1. [Hodnotové typy](#value-types)
 
     - [Celočíselné](#integer)
     - [Desetinná čísla](#floating-point)
-    - [Logické a znakové typy](#boolean-character-types)
-    - [Uživatelské hodnotové typy](#user-defined-types)
+    - [Logika a znaky](#boolean-character-types)
+    - [Speciální pro UNITY 3D](#unity-specific-types)
+    - [Uživatelské](#user-defined-types)
 
-2.
+2. [Referenční typy](#reference-types)
+
+    - [Základní](#basic-reference-types)
+    - [Kolekce a pole](#collections-arrays)
 
 3.
 
@@ -43,7 +47,7 @@
        - může se psát s **l nebo L** na konci (`long BigNumber = 100l;`)
        - když `int` nestačí
 
-    <br>
+  [Zpět na obsah](#summary)<br>
   
   - <a id="floating-point"></a><span style="font-size: 16px;"> ***Desetinná čísla (Floating-point Types)*** </span>
 
@@ -71,7 +75,7 @@
         - celkově finanční systém, kde zaokrouhlování není přijatelné
         - **ekonomika her** - herní měna, obchody, nákupy, systémy
 
-    <br>
+  [Zpět na obsah](#summary)<br>
 
   - <a id="boolean-character-types"></a><span style="font-size: 16px"> ***Logické a znakové typy (Boolean & Character types)*** </span>
 
@@ -86,16 +90,16 @@
         - musí být v **jednoduchých uvozovkách**: `'A'`, `'č'`, `'1'`
         - pro jednotlivé znaky či symboly
 
-    <br>
+  [Zpět na obsah](#summary)<br>
 
-  - <span style="font-size: 16px"> ***Unity-specifické typy*** </span>
+  - <a id="unity-specific-types"></a><span style="font-size: 16px"> ***Unity-specifické typy (Unity-specific Value types)*** </span>
 
     1. `Vector3 pozice = new Vector3(1.0f, 2.0f, 3.0f);`
        - **základní typ pro pozice v prostoru**
        - X, Y, Z souřadnice
        - použití: transform.position, pohyb objektů
 
-    <br>
+  [Zpět na obsah](#summary)<br>
 
   - <a id="user-defined-types"></a><span style="font-size: 16px"> ***Uživatelské hodnotové typy (User-defined Value types)*** </span>
 
@@ -115,9 +119,11 @@
         - **občas** se používá s throw
         - **příklad:** `enum StavHrace { Beh, Skok, Utok, Smrt }`
 
-<br>
+  [Zpět na obsah](#summary)<br>
 
 - <a id="reference-types"></a><span style="font-size: 18px"> **Referenční typy (Reference types)** </span>
+
+  - <a id="basic-reference-types"></a><span style="font-size: 16px"> ***Základní referenční typy*** </span>
 
     1. `string stringName = "Text";`
 
@@ -140,6 +146,8 @@
         - `object text = "Ahoj";` - ukládá text
         - `object seznam = new List<string>();` - ukládá kolekci
         - **nevýhoda** - při čtení musíš přetypovat `int cislo = (int)data;`
+
+  [Zpět na obsah](#summary)<br>
 
   - <a id="collections-arrays"></a><span style="font-size: 16px"> **Kolekce a pole (Collections and arrays)** </span>
 
@@ -177,6 +185,8 @@
          - rychlé vyhledání hodnoty podle klíče
          - `Add()`, `Remove()`, `ContainsKey()`
          - použití na : nastavení, statistiky, vyhledávání atd
+
+  <br>[Zpět na obsah](#summary)<br><br>
 
 ## 2. Řízení toku programu
 
