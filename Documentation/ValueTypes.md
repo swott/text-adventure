@@ -20,8 +20,10 @@
 ## Rozdělení
 
 - <a id="value-types"></a><span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
+<br>
 
   - <a id="integer"></a><span style="font-size: 16px;"> ***Celočíselné (Integer types)*** </span>
+<br>
 
     1. **`int number = 0;`**
   
@@ -29,6 +31,7 @@
        - **výchozí** pro celá čísla
        - příklad: zdraví, skóre, počet předmětů
        - rozsah -2,1M - 2,1M
+      <br>
   
     2. **`byte number = 0;`**
   
@@ -37,6 +40,7 @@
        - procenta (0-100)
        - paměťově úsporný
        - rozsah 0-255
+      <br>
 
     3. **`long number = 0l;`**
   
@@ -44,10 +48,12 @@
        - celkové skóre, universální ID
        - může se psát s **l nebo L** na konci (`long BigNumber = 100l;`)
        - když `int` nestačí
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
   
   - <a id="floating-point"></a><span style="font-size: 16px;"> ***Desetinná čísla (Floating-point Types)*** </span>
+  <br>
 
     1. **`float pixelX = 125.8f;`**
 
@@ -57,6 +63,7 @@
         - **MUSÍ** se psát s **f nebo F** na konci
         - 2D grafika, UI
         - embedded systémy (hodinky, senzory, termostaty atd), kde je paměť limitovaná
+      <br>
 
     2. **`double number = 3.14d;`**
 
@@ -64,6 +71,7 @@
         - výpočty s měřeními (výška, váha...), vědecké výpočty
         - pozice objektů ve 3D hrách, statistika, obecná matematika
         - může se psát s **d** na konci
+      <br>
 
     3. **`decimal money = 99.99m;`**
 
@@ -72,23 +80,27 @@
         - **MUSÍ** se používat s **m nebo M** na konci
         - celkově finanční systém, kde zaokrouhlování není přijatelné
         - **ekonomika her** - herní měna, obchody, nákupy, systémy
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
 
   - <a id="boolean-character-types"></a><span style="font-size: 16px"> ***Logické a znakové typy (Boolean & Character types)*** </span>
+  <br>
 
     1. **`bool check = true;`**
 
         - **logické podmínky** - true / false
         - použití : `if (IsActive)`, `while (continue)`
+      <br>
 
     2. **`char character = 'A';`**
 
         - **jeden** Unicode znak
         - musí být v **jednoduchých uvozovkách**: `'A'`, `'č'`, `'1'`
         - pro jednotlivé znaky či symboly
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
 
   - <a id="unity-specific-types"></a><span style="font-size: 16px"> ***Unity-specifické typy (Unity-specific Value types)*** </span>
 
@@ -96,10 +108,12 @@
        - **základní typ pro pozice v prostoru**
        - X, Y, Z souřadnice
        - použití: transform.position, pohyb objektů
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
 
   - <a id="user-defined-types"></a><span style="font-size: 16px"> ***Uživatelské hodnotové typy (User-defined Value types)*** </span>
+  <br>
 
     1. **`struct StructName { public int X; public int Y; }`**
 
@@ -107,6 +121,7 @@
         - pro **malé** datové struktury (**jako ID, pozice**)
         - chová se jako číslo - při přiřazení se kopíruje
         - použít pro data, která jsou **jednoduchá a neměnná**
+      <br>
 
     2. **`enum EnumName { Hodnota1, Hodnota2, Hodnota3 }`**
 
@@ -116,24 +131,29 @@
         - zlepšuje čitelnost kódu
         - **občas** se používá s throw
         - **příklad:** `enum StavHrace { Beh, Skok, Utok, Smrt }`
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
 
 - <a id="reference-types"></a><span style="font-size: 18px"> **Referenční typy (Reference types)** </span>
+<br>
 
   - <a id="basic-reference-types"></a><span style="font-size: 16px"> ***Základní referenční typy*** </span>
+  <br>
 
     1. **`string stringName = "Text";`**
 
         - textový typ
         - i když se do něj napíše číslo, bere se jako text, ne int atd.
         - neměnný (immutable)
+      <br>
 
     2. **`class className { more code }`**
 
         - uživatelský referenční typ
         - dědičnost, polymorfismus
         - větší popis [zde](Classes.md)
+      <br>
 
     3. **`object objectName = value;`**
 
@@ -144,12 +164,15 @@
         - `object text = "Ahoj";` - ukládá text
         - `object seznam = new List<string>();` - ukládá kolekci
         - **nevýhoda** - při čtení musíš přetypovat `int cislo = (int)data;`
+      <br>
 
-  [Zpět na obsah](#summary)<br>
+  [Zpět na obsah](#summary)<br><br>
 
   - <a id="collections-arrays"></a><span style="font-size: 16px"> **Kolekce a pole (Collections and arrays)** </span>
+  <br>
 
     - <a id="array"></a><span style="font-size: 16px;"> ***Pole (Array)*** </span>
+    <br>
   
       1. **`dataType[] arrayName = {1, 2};`**
 
@@ -157,8 +180,10 @@
          - přístup přes **index od 0**: `arrayName[0]` - první položka (1)
          - položky jsou uloženy za sebou
          - rychlé, ale méně flexibilní než List
+        <br>
 
     - <a id="collections"></a><span style="font-size: 16px;"> ***Kolekce (Collections)*** </span>
+    <br>
 
         <span style="display: block; padding-left: 100px; text-decoration: underline; font-size: 16px;">**Vlastnosti kolekcí**</span>
 
@@ -175,6 +200,7 @@
          - hledá se pomaleji - musí projít všechny položky
          - `Add()`, `Remove()`, `Count`
          - použití na : seznam úkolů, hráčů, předmětů atd.
+        <br>
 
       2. **`Dictionary<keyType, valueType> slovnik = new Dictionary<keyType, valueType>();`**
 
@@ -183,7 +209,8 @@
          - rychlé vyhledání hodnoty podle klíče
          - `Add()`, `Remove()`, `ContainsKey()`
          - použití na : nastavení, statistiky, vyhledávání atd
+        <br>
 
-  <br>[Zpět na obsah](#summary)<br><br>
+  [Zpět na obsah](#summary)<br><br>
 
 \| ❌ Žádná předešlá kapitola \| ⬆️ [Zpět na seznam souborů](index.md) \| [Další kapitola - Programovací logika ](ControlFlow.md)➡️ \|
