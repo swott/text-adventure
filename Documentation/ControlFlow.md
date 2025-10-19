@@ -1,5 +1,7 @@
 # Řízení toku programu
 
+---
+
 <a id="summary"></a><span style="font-size: 16px;">**Obsah:**</span>
 <!-- TOC -->
 1. [Podmínky](#conditionals)
@@ -8,14 +10,19 @@
 4. [Řídící příkazy](#control-statemens)
 <!-- /TOC -->
 
+---
 ## Rozdělení
 
 - <a id="conditionals"></a><span style="font-size: 18px;"> ***Podmínky (Conditionals / Selection statements)*** </span>
-<br>
+<span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`if`, `else if`, `else`**
 
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - **základní větvení** programu dle podmínky
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
         ```csharp
@@ -41,12 +48,15 @@
         }
         ```
 
-       <br>
+       <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`switch`, `case`, `default`**
 
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - **výběr z více možností**
     - lepší než řetězec *if-else*
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
         ```csharp
@@ -75,9 +85,11 @@
         }
         ```
 
-        <br>
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **Ternární operátor `? :`**
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
     - **zkratka** pro `if-else`
     - **syntaxe: `condition ? trueValue : falseValue`**
@@ -89,6 +101,9 @@
       - jednoduchá podmínka
       - přiřazení hodnoty do proměnné
       - kód zůstane čitelný
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
         - **Příklady správného použití:**
 
         ```csharp
@@ -114,12 +129,15 @@
         }  
         ```
 
-        <br>
+        <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
     - **⚠️ Nepoužívat, když:**
       - podmínka je složitá
       - potřebuješ provést více příkazů
       - kód by byl hůře čitelný
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
         - **Příklady špatného použití**
 
         ```csharp
@@ -173,15 +191,21 @@
             ProcessNegativeValue(TransformInput(x, y));
         ```
 
-[Zpět na obsah](#summary)<br>
+[Zpět na obsah](#summary)
 
 - <a id="loops"></a><span style="font-size: 18px;"> **Cykly (Loops / Iteration statements)** </span>
-<br>
+<span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`for`**
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - opakuje několikrát kód v něm obsažený
     - když je **předem znám** počet opakování
     - **syntaxe: `for (initialization; condition; increment) { code; }`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
       - **Herní příklad:**
 
         ```csharp
@@ -193,14 +217,20 @@
         }
         ```
 
-    <br>
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`foreach`**
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - procházení kolekcí (List, pole)
     - zopakuje blok kódu pro **každou** položku v kolekci
     - nemusí se řešit indexy
     - používá se datový typ co je v kolekci uložen
     - **syntaxe: `foreach (type variable in collectionName) { code; }`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
       - **Herní příklad:**
 
         ```csharp
@@ -211,13 +241,19 @@
         }
         ```
 
-    <br>
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`while`**
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - opakuje kód, **dokud platí** podmínka
     - když **není znám** předem počet opakování
     - **⚠️ pozor na nekonečné cykly** - podmínka se **musí někdy změnit**
     - **syntaxe: `while (condition) { code; }`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
       - **Herní příklad**
 
         ```csharp
@@ -231,12 +267,18 @@
         Console.WriteLine("Konečně šestka!");
         ```
 
-    <br>
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - **`do-while`**
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
     - kód se **nejdříve provede**, pak se kontroluje podmínka
     - zaručuje **alespoň jedno provedení**
     - **syntaxe: `do { code; } while (condition);`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
       - **Herní příklad:**
 
         ```csharp
@@ -252,9 +294,7 @@
         Console.WriteLine($"Vítej, {playerName}!");
         ```
 
-    <br>
-
-[Zpět na obsah](#summary)<br><br>
+[Zpět na obsah](#summary)
 
 - <a id="exception-handling"></a><span style="font-size: 18px;"> **Výjimky (Exception Handling / Exception-handling statements)** </span>
 
@@ -262,7 +302,7 @@
   - B
   - B
 
-[Zpět na obsah](#summary)<br>
+[Zpět na obsah](#summary)
 
 - <a id="control-statemens"></a><span style="font-size: 18px;"> **Řídící příkazy (Control Statements / Jump statements)** </span>
 
@@ -270,6 +310,6 @@
   2. B
   3. B
 
-<br>[Zpět na obsah](#summary)<br><br>
+[Zpět na obsah](#summary)
 
 \| ⬅️[Datové typy](ValueTypes.md) \| ⬆️ [Zpět na seznam souborů](index.md) ⬆️ \| [Další kapitola - Programovací logika](ControlFlow.md)➡️ \|
