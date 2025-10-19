@@ -19,18 +19,18 @@
 <!-- /TOC -->
 ## Rozdělení
 
-- <span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
+- <a id="value-types"></a><span style="font-size: 18px;"> **Hodnotové typy (Value types)** </span>
 
   - <a id="integer"></a><span style="font-size: 16px;"> ***Celočíselné (Integer types)*** </span>
 
-    1. `int number = 0;`
+    1. **`int number = 0;`**
   
        - **základní pro hry** - počítadla, ID, indexy
        - **výchozí** pro celá čísla
        - příklad: zdraví, skóre, počet předmětů
        - rozsah -2,1M - 2,1M
   
-    2. `byte number = 0;`
+    2. **`byte number = 0;`**
   
        - **specifické situace, optimalizace**
        - barvy (0-255) - RGB, malé hodnoty
@@ -38,7 +38,7 @@
        - paměťově úsporný
        - rozsah 0-255
 
-    3. `long number = 0l;`
+    3. **`long number = 0l;`**
   
        - pro **velká** celá čísla
        - celkové skóre, universální ID
@@ -49,7 +49,7 @@
   
   - <a id="floating-point"></a><span style="font-size: 16px;"> ***Desetinná čísla (Floating-point Types)*** </span>
 
-    1. `float pixelX = 125.8f;`
+    1. **`float pixelX = 125.8f;`**
 
         - **základní pro UNITY 3D** - pozice, rotace, fyzika
         - příklady : `transform.position`, `Vector3`, `Quaternion`
@@ -58,14 +58,14 @@
         - 2D grafika, UI
         - embedded systémy (hodinky, senzory, termostaty atd), kde je paměť limitovaná
 
-    2. `double number = 3.14d;`
+    2. **`double number = 3.14d;`**
 
         - používat **nejčastěji mimo UNITY 3D**
         - výpočty s měřeními (výška, váha...), vědecké výpočty
         - pozice objektů ve 3D hrách, statistika, obecná matematika
         - může se psát s **d** na konci
 
-    3. `decimal money = 99.99m;`
+    3. **`decimal money = 99.99m;`**
 
         - používat **cíleně**
         - přesnost v **desítkové soustavě**
@@ -77,12 +77,12 @@
 
   - <a id="boolean-character-types"></a><span style="font-size: 16px"> ***Logické a znakové typy (Boolean & Character types)*** </span>
 
-    1. `bool check = true;`
+    1. **`bool check = true;`**
 
         - **logické podmínky** - true / false
         - použití : `if (IsActive)`, `while (continue)`
 
-    2. `char character = 'A';`
+    2. **`char character = 'A';`**
 
         - **jeden** Unicode znak
         - musí být v **jednoduchých uvozovkách**: `'A'`, `'č'`, `'1'`
@@ -92,7 +92,7 @@
 
   - <a id="unity-specific-types"></a><span style="font-size: 16px"> ***Unity-specifické typy (Unity-specific Value types)*** </span>
 
-    1. `Vector3 pozice = new Vector3(1.0f, 2.0f, 3.0f);`
+    1. **`Vector3 pozice = new Vector3(1.0f, 2.0f, 3.0f);`**
        - **základní typ pro pozice v prostoru**
        - X, Y, Z souřadnice
        - použití: transform.position, pohyb objektů
@@ -101,14 +101,14 @@
 
   - <a id="user-defined-types"></a><span style="font-size: 16px"> ***Uživatelské hodnotové typy (User-defined Value types)*** </span>
 
-    1. `struct StructName { public int X; public int Y; }`
+    1. **`struct StructName { public int X; public int Y; }`**
 
         - **ideální pro UNITY 3D** - Vector3, Quaternion, Color
         - pro **malé** datové struktury (**jako ID, pozice**)
         - chová se jako číslo - při přiřazení se kopíruje
         - použít pro data, která jsou **jednoduchá a neměnná**
 
-    2. `enum EnumName { Hodnota1, Hodnota2, Hodnota3 }`
+    2. **`enum EnumName { Hodnota1, Hodnota2, Hodnota3 }`**
 
         - **výčtový typ (Enumeration type)** pro předdefinované možnosti (dny, stavy)
         - **časté ve hrách** - stavy hry, typy předmětů, AI stavy
@@ -123,19 +123,19 @@
 
   - <a id="basic-reference-types"></a><span style="font-size: 16px"> ***Základní referenční typy*** </span>
 
-    1. `string stringName = "Text";`
+    1. **`string stringName = "Text";`**
 
         - textový typ
         - i když se do něj napíše číslo, bere se jako text, ne int atd.
         - neměnný (immutable)
 
-    2. `class className { more code }`
+    2. **`class className { more code }`**
 
         - uživatelský referenční typ
         - dědičnost, polymorfismus
         - větší popis [zde](Classes.md)
 
-    3. `object objectName = value;`
+    3. **`object objectName = value;`**
 
         - **používat velice výjimečně** - ztráta bezpečnosti jednotlivých typů
         - základní typ všech typů
@@ -151,7 +151,7 @@
 
     - <a id="array"></a><span style="font-size: 16px;"> ***Pole (Array)*** </span>
   
-      1. `dataType[] arrayName = {1, 2};`
+      1. **`dataType[] arrayName = {1, 2};`**
 
          - **pevná velikost** (po vytvoření nelze přidávat ani odebírat položky)
          - přístup přes **index od 0**: `arrayName[0]` - první položka (1)
@@ -167,7 +167,7 @@
       - kapacita prakticky neomezená (záleží na RAM)
       - dynamicky rostou podle potřeby <br><br>
 
-      1. ``List<dataType> listName = new List<dataType>();``
+      1. **``List<dataType> listName = new List<dataType>();``**
 
          - **seznamy (nepřátel, předmětů, efektů atd)**
          - čtení podle pozice položky (index), začíná **od 0**
@@ -176,7 +176,7 @@
          - `Add()`, `Remove()`, `Count`
          - použití na : seznam úkolů, hráčů, předmětů atd.
 
-      2. `Dictionary<keyType, valueType> slovnik = new Dictionary<keyType, valueType>();`
+      2. **`Dictionary<keyType, valueType> slovnik = new Dictionary<keyType, valueType>();`**
 
          - **slovník**
          - ukládáš věci pod názvem (klíčem)
@@ -186,4 +186,4 @@
 
   <br>[Zpět na obsah](#summary)<br><br>
 
-\| ❌ Žádná předešlá kapitola \| [⬆️ Zpět na seznam souborů](index.md) \| [Další kapitola - Programovací logika ➡️](ControlFlow.md) \|
+\| ❌ Žádná předešlá kapitola \| ⬆️ [Zpět na seznam souborů](index.md) \| [Další kapitola - Programovací logika ](ControlFlow.md)➡️ \|
