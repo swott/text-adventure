@@ -186,4 +186,4 @@
 
   <br>[Zpět na obsah](#summary)<br><br>
 
-[⬆️ Zpět na seznam souborů](index.md) \| [Další kapitola - Programovací logika ➡️](ControlFlow.md)
+\| ❌ Žádná předešlá kapitola \| [⬆️ Zpět na seznam souborů](index.md) \| [Další kapitola - Programovací logika ➡️](ControlFlow.md) \|
