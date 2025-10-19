@@ -15,8 +15,7 @@
   1. **`if`, `else if`, `else`**
 
      - **základní větvení** programu dle podmínky
-     - Syntaxe
-
+     - <br><div align="center">**Syntaxe:**</div>
      - ```csharp
         if (condition) { code; }
         else if (another condition) { code; }
