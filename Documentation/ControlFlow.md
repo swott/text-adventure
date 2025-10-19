@@ -333,14 +333,14 @@
 - <a id="control-statemens"></a><span style="font-size: 18px;"> **Řídící příkazy (Control Statements / Jump statements)** </span>
 <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-  1. B
-  2. B
-  3. B
+  - B
+  - B
+  - B
 
-<span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
-[Zpět na obsah](#summary)
+    [Zpět na obsah](#summary)
 
-<span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
+    <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 \| ⬅️[Datové typy](ValueTypes.md) \| ⬆️ [Zpět na seznam souborů](index.md) ⬆️ \| [Další kapitola - Programovací logika](ControlFlow.md)➡️ \|
