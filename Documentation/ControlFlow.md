@@ -108,7 +108,7 @@
 
         - **Příklady správného použití:**
 
-        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+            <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
             ```csharp
             // Pokud je přes osmnáct, je dospělý
@@ -122,8 +122,8 @@
             // S čísly
             int score = 85;
             string grade = (score >= 90) ? "A" : 
-                    (score >= 80) ? "B" : 
-                    (score >= 70) ? "C" : "F";
+                (score >= 80) ? "B" : 
+                (score >= 70) ? "C" : "F";
             Console.WriteLine(grade); // Vypíše: "B"
 
             // Vrácení hodnoty z metody
