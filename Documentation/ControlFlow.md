@@ -63,20 +63,14 @@
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
-        <div style="display: inline-block; max-width: fit-content;">
-
         ```csharp
         if (condition) { code; }
         else if (another condition) { code; }
         else { code; }
         ```
 
-        </div>
-
       - **Herní příklad:**
-
-        <div style="display: inline-block; max-width: fit-content;">
-
+  
         ```csharp
         if (health <= 0)
         {
@@ -92,8 +86,6 @@
         }
         ```
 
-        </div>
-
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
   - **`switch`, `case`, `default`** <a id="switch"></a>
@@ -105,8 +97,6 @@
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
-        <div style="display: inline-block; max-width: fit-content;">
-
         ```csharp
         switch (variable)
         {
@@ -116,11 +106,7 @@
         }
         ```
 
-        </div>
-
       - **Herní příklad**
-
-        <div style="display: inline-block; max-width: fit-content;">
 
         ```csharp
         switch (playerState)
@@ -136,8 +122,6 @@
                 break;
         }
         ```
-
-        </div>
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
@@ -158,8 +142,6 @@
       - kód zůstane čitelný
 
         <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
-
-        <div style="display: inline-block; max-width: fit-content;">
 
         - **Příklady správného použití:**
 
@@ -188,8 +170,6 @@
             }  
             ```
 
-            </div>
-
         <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
     - **⚠️ Nepoužívat, když:**
@@ -205,8 +185,6 @@
         - **Příklady špatného použití**
 
             <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
-
-            <div style="display: inline-block; max-width: fit-content;">
 
             ```csharp
 
@@ -259,8 +237,6 @@
                 ProcessNegativeValue(TransformInput(x, y));
             ```
 
-            </div>
-
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
     [Zpět na obsah](#summary)
@@ -284,8 +260,6 @@
 
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-        <div style="display: inline-block; max-width: fit-content;">
-
         ```csharp
         // Začni na 0, pokračuj dokud i < počtu nepřátel,
         // po každém kroku i zvyš o 1
@@ -295,8 +269,6 @@
             enemies[i].Attack(); 
         }
         ```
-
-        </div>
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
@@ -658,14 +630,14 @@
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
   
     - **okamžité ukončení** cyklu nebo switch
-    - při nutnosti předčasně skončit:
+    - při nutnosti **předčasně skončit:**
 
       <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-      - **nález** potřebné věci (není potřeba dále hledat)
+      - **nález** hledané položky (nemusí se procházet zbytek)
       - podmínka pro pokračování **přestala platit**
-      - **došlo k chybě** nebo neočekávané situaci
-      - uživatel **zadal příkaz k přerušení**
+      - **nastala chyba** nebo neočekávaná situace (selhalo načítání)
+      - uživatel **zadal příkaz k přerušení** (ESC, nebo zrušit)
   
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -678,11 +650,131 @@
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
         ```csharp
-        
+        foreach (Enemy enemy in enemies)
+        {
+          if (enemy.Type == EnemyType.Boss)
+          {
+              AttackBoss(enemy);
+              break; // Našli jsme bosse, končíme hledání
+          }
+        }
         ```
 
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
   - **`continue`** <a id="continue"></a>
+  
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+  
+    - **přeskočení** aktuální iterace (opakování) cyklu
+    - **pokračování s další položkou** v kolekci
+    - potřeba **přeskočit položky**, ale **bez ukončení cyklu:**
+  
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - **nerelevantní položka** pro aktuální operaci
+      - **splněna podmínka** položky - není už potřeba použít
+      - **špatný stav** položky - (neaktivní, neplatný, mrtvý)
+      - zpracovává se **pouze část** položek
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - **syntaxe: `continue;`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        // Projdi všechny nepřátele, ale mrtvé přeskoč
+        foreach (Enemy enemy in enemies)
+        {
+          // Přeskočení mrtvých
+          if (enemy.IsDead)
+              continue;
+          
+          // Aktualizování živých nepřátel
+          enemy.UpdateAi();
+          enemy.move();
+        }
+        ----------------------------------------------
+        // Zpracuj předměty určité kvality
+        foreach (Item item in player.inventory)
+        {
+          // Přeskoč běžné
+          if (item.Quality < ItemQuality.Rare)
+              continue;
+
+          // Použij jen vzácné
+          ApplySpecialEffect(item);
+        }
+        ```
+
+      <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
   - **`return`** <a id="return"></a>
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - **návrat z metody** s možností vrácení hodnoty
+    - **okamžité ukončení** metody a předání výsledku
+    - **předčasné dokončení** metody nebo **vrácení výsledku**
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - metoda **dokončila úkol** s výsledkem
+      - **chyba nebo neplatný stav**
+      - **nesplněná podmínka** - předčasný návrat
+      - **validace vstupů** - neplatné parametry
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - **syntaxe:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - **`return;`** pro `void` metody
+      - **`return value;`** pro metody s návratovým typem
+
+        <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        ```csharp
+        // Metoda vracející poškození zbraně
+        public int CalculateDamage(Weapon weapon, Player player)
+        {
+            // Validace vstupů - předčasný návrat
+            if (weapon == null)
+                return 0;
+            
+            // Podmínka nebyla splněna - předčasný návrat
+            if (player.Strength < weapon.RequiredStrength)
+                return weapon.BaseDamage / 2;
+            
+            // Normální návrat s výsledkem
+            return weapon.BaseDamage + player.Strength;
+        }
+        ---------------------------------------------------------
+        // Metoda pro kontrolu, zda může hráč použít schopnost
+        public bool CanUseAbility(Player player, Ability ability)
+        {
+            // Různé důvody pro předčasný návrat
+            if (player.Mana < ability.ManaCost)
+                return false;
+            
+            if (ability.IsOnCooldown)
+                return false;
+            
+            if (player.IsStunned)
+                return false;
+            
+            // Všechny podmínky splněny
+            return true;
+        }
+        ```
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
@@ -690,4 +782,4 @@
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
-\| ⬅️[Datové typy](ValueTypes.md) \| ⬆️ [Zpět na seznam souborů](index.md) ⬆️ \| [Další kapitola - Programovací logika](ControlFlow.md)➡️ \|
+\| ⬅️[Datové typy](ValueTypes.md) \| ⬆️ [Zpět na seznam souborů](index.md) ⬆️ \| [Další kapitola - WIP](index.md)➡️ \|
