@@ -11,7 +11,7 @@
 
    - [`if-else`](#if-else)
    - [`switch`](#switch)
-   - [`? :` - Ternární operátor](#ternary-operator)
+   - [`? : - Ternární operátor`](#ternary-operator)
 
     <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
 
