@@ -37,6 +37,14 @@
     <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
 
 4. [Řídící příkazy](#control-statemens)
+
+   <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+    - [`break`](#break)
+    - [`continue`](#continue)
+    - [`return`](#return)
+
+    <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
 <!-- /TOC -->
 
 ---
@@ -55,13 +63,19 @@
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
+        <div style="display: inline-block; max-width: fit-content;">
+
         ```csharp
         if (condition) { code; }
         else if (another condition) { code; }
         else { code; }
         ```
 
+        </div>
+
       - **Herní příklad:**
+
+        <div style="display: inline-block; max-width: fit-content;">
 
         ```csharp
         if (health <= 0)
@@ -78,6 +92,8 @@
         }
         ```
 
+        </div>
+
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
   - **`switch`, `case`, `default`** <a id="switch"></a>
@@ -89,6 +105,8 @@
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
       - **Syntaxe:**
 
+        <div style="display: inline-block; max-width: fit-content;">
+
         ```csharp
         switch (variable)
         {
@@ -98,7 +116,11 @@
         }
         ```
 
+        </div>
+
       - **Herní příklad**
+
+        <div style="display: inline-block; max-width: fit-content;">
 
         ```csharp
         switch (playerState)
@@ -114,6 +136,8 @@
                 break;
         }
         ```
+
+        </div>
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
@@ -134,6 +158,8 @@
       - kód zůstane čitelný
 
         <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+        <div style="display: inline-block; max-width: fit-content;">
 
         - **Příklady správného použití:**
 
@@ -162,6 +188,8 @@
             }  
             ```
 
+            </div>
+
         <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
     - **⚠️ Nepoužívat, když:**
@@ -177,6 +205,8 @@
         - **Příklady špatného použití**
 
             <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+            <div style="display: inline-block; max-width: fit-content;">
 
             ```csharp
 
@@ -229,6 +259,8 @@
                 ProcessNegativeValue(TransformInput(x, y));
             ```
 
+            </div>
+
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
     [Zpět na obsah](#summary)
@@ -252,14 +284,19 @@
 
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
+        <div style="display: inline-block; max-width: fit-content;">
+
         ```csharp
         // Začni na 0, pokračuj dokud i < počtu nepřátel,
         // po každém kroku i zvyš o 1
         for (int i = 0; i < enemies.Length; i++) 
         {
-            enemies[i].Attack(); // Útok nepřítele na pozici 'i' v indexu
+            // Útok nepřítele na pozici 'i' v indexu
+            enemies[i].Attack(); 
         }
         ```
+
+        </div>
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
@@ -293,7 +330,7 @@
 
     - opakuje kód, **dokud platí** podmínka
     - když **není znám** předem počet opakování
-    - **⚠️ pozor na nekonečné cykly** - podmínka se **musí někdy změnit**
+    - ⚠️ **pozor na nekonečné cykly** - podmínka se **musí někdy změnit** ⚠️
     - **syntaxe: `while (condition) { code; }`**
 
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
@@ -349,7 +386,7 @@
 - <a id="exception-handling"></a><span style="font-size: 18px;"> **Výjimky (Exception Handling / Exception-handling statements)** </span>
 <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - <span style="text-decoration: underline; font-size: 16px;">***Základní informace***</span>
+  - ⚠️<span style="text-decoration: underline; font-size: 16px;">***Základní informace***</span>⚠️
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
@@ -470,18 +507,20 @@
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
     - kód se **vždy** provede (ať nastala chyba nebo ne)
-    - úklid zdrojů - zůstaly by **zaseknuté v paměti** = **MEMORY LEAK**
+    - úklid zdrojů - zůstaly by **zaseknuté v paměti** = **MEMORY LEAK** ⚠️
 
-        <span style="display: block; height: 0.1em;"></span> <!--"Nový řádek"-->
+        <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
       - **Příklady** zdrojů nutných k **uvolnění/uzavření:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
         - 📁 **Soubory** - musí se zavřít
         - 🌐 **Síťová spojení** - musí se ukončit
         - 💾 **Databázové spojení** - musí se uzavřít
         - 🎮 **Herní zdroje** - textury, audio musí být uvolněny
 
-        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+        <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
       - **Syntaxe:**
 
@@ -524,12 +563,10 @@
 
         catch (Exception ex)
         {
-          // Když nastane chyba, soubor se NEZAVŘE - ÚNIK PAMĚTI
+          // ⚠️ Když nastane chyba, soubor se NEZAVŘE - ÚNIK PAMĚTI ⚠️
           Console.WriteLine($"Chyba: {ex.Message}");
         }
-
-        -------------------------
-
+        ---------------------------------------------------------------
         // Musí se dopsat TOTO:
         finally
         {
@@ -560,10 +597,8 @@
               continue;
             }
 
-            // Ale, bez finally, by se po pár chybách sekala hra!
-
-            ----------------------------------------------
-
+            // ⚠️ Ale, bez finally, by se po pár chybách sekala hra! ⚠️
+            ------------------------------------------------------------
             // Zatímco takto...
 
             finally
@@ -602,8 +637,8 @@
         
         finally
         {
-          // Ať už se textura načetla nebo ne
-          // stará se MUSÍ UKLIDIT!
+          // ⚠️ Ať už se textura načetla nebo ne,
+          //      stará se MUSÍ UKLIDIT! ⚠️
           if (oldTexture != null)
               oldTexture.Dispose();
         }
@@ -618,9 +653,36 @@
 - <a id="control-statemens"></a><span style="font-size: 18px;"> **Řídící příkazy (Control Statements / Jump statements)** </span>
 <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - B
-  - B
-  - B
+  - **`break`** <a id="break"></a>
+  
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+  
+    - **okamžité ukončení** cyklu nebo switch
+    - při nutnosti předčasně skončit:
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - **nález** potřebné věci (není potřeba dále hledat)
+      - podmínka pro pokračování **přestala platit**
+      - **došlo k chybě** nebo neočekávané situaci
+      - uživatel **zadal příkaz k přerušení**
+  
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - **syntaxe: `break;`**
+
+      <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        
+        ```
+
+  - **`continue`** <a id="continue"></a>
+  - **`return`** <a id="return"></a>
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
