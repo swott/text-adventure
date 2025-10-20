@@ -302,7 +302,7 @@
 
     - opakuje kód, **dokud platí** podmínka
     - když **není znám** předem počet opakování
-    - ⚠️ **pozor na nekonečné cykly** - podmínka se **musí někdy změnit** ⚠️
+    - ⚠️ **pozor na nekonečné cykly** ⚠️
     - **syntaxe: `while (condition) { code; }`**
 
       <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
@@ -614,6 +614,7 @@
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
         ```csharp
+        Texture2D oldTexture = player.GetTexture();
         Texture2D texture = null;
 
         try
