@@ -4,9 +4,38 @@
 
 <a id="summary"></a><span style="font-size: 16px;">**Obsah:**</span>
 <!-- TOC -->
+
 1. [Podmínky](#conditionals)
+  
+    <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+   - [`if-else`](#if-else)
+   - [`switch`](#switch)
+   - [`? :` - Ternární operátor](#ternary-operator)
+
+    <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
+
 2. [Cykly](#loops)
+
+    <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+     - [`for`](#for)
+     - [`foreach`](#foreach)
+     - [`while`](#while)
+     - [`do-while`](#do-while)
+
+    <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
+
 3. [Výjimky](#exception-handling)
+
+    <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+    - [`try-catch`](#try-catch)
+    - [`throw`](#throw)
+    - [`finally`](#finally)
+
+    <span style="display: block; height: 0.8em;"></span> <!--"Nový řádek"-->
+
 4. [Řídící příkazy](#control-statemens)
 <!-- /TOC -->
 
@@ -17,7 +46,7 @@
 - <a id="conditionals"></a><span style="font-size: 18px;"> ***Podmínky (Conditionals / Selection statements)*** </span>
 <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - **`if`, `else if`, `else`**
+  - **`if`, `else if`, `else`** <a id="if-else"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -51,7 +80,7 @@
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
-  - **`switch`, `case`, `default`**
+  - **`switch`, `case`, `default`** <a id="switch"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -88,7 +117,7 @@
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
-  - **Ternární operátor `? :`**
+  - **Ternární operátor `? :`** <a id="ternary-operator"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -209,7 +238,7 @@
 - <a id="loops"></a><span style="font-size: 18px;"> **Cykly (Loops / Iteration statements)** </span>
 <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - **`for`**
+  - **`for`** <a id="for"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -234,7 +263,7 @@
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - **`foreach`**
+  - **`foreach`** <a id="foreach"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -258,7 +287,7 @@
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - **`while`**
+  - **`while`** <a id="while"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -284,7 +313,7 @@
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - **`do-while`**
+  - **`do-while`** <a id="do-while"></a>
 
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
@@ -318,11 +347,267 @@
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 - <a id="exception-handling"></a><span style="font-size: 18px;"> **Výjimky (Exception Handling / Exception-handling statements)** </span>
-<span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+<span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-  - B
-  - B
-  - B
+  - <span style="text-decoration: underline; font-size: 16px;">***Základní informace***</span>
+
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
+    - **nechytej výjimky, které neumíš vyřešit!**
+
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
+      ```csharp
+      // Špatně - skrývání chyb:
+      try { EntireGame(); }
+      
+      // Prázdný catch!
+      catch (Exception) { }
+      ---------------------------
+      // Správně - ošetřuji jen konkrétní chyby
+      try { LoadFile(); }
+
+      // Toto už se dá řešit!
+      catch (FileNotFoundException) { CreateFile(); }
+      ```
+
+      <span style="display: block; height: 1.6em;"></span> <!--"Nový řádek"-->
+
+  - **``try-catch``** <a id="try-catch"></a>
+  
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+  
+    - **Při možnosti selhání kódu**
+      - načítání souboru, síťová komunikace, práce s databází
+    - **nejprve se pokusí provést** kód v `try` blocku
+    - při chybě program **nespadne, ale jde** do `catch` bloku
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Syntaxe:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+          ```csharp
+          try
+          {
+            // Kód, co může způsobit chybu
+            dangerousOperation();
+          }
+
+          catch (ExceptionType variableName)
+          {
+            // Co se má stát, když chyba nastane
+            Console.WriteLine($"Error: {variableName.Message}");
+          }
+          ```
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+          ```csharp
+          try
+          {
+            // Pokus načíst uloženou hru
+            GameSaveManager.LoadSave("autosave.dat");
+          }
+
+          catch (FileNotFoundException ex)
+          {
+            // Pokud soubor neexistuje, vytvoříme novou hru
+            Console.WriteLine($"Save file not found: {ex.Message}");
+            CreateNewGame();
+          }
+
+          catch (IOException ex)
+          {
+            // Obecná chyba práce se souborem
+            Console.WriteLine($"File error: {ex.Message}");
+          }
+          ```
+
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
+  - **`throw`** <a id="throw"></a>
+  
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+  
+    - ručně vyhodí výjimku a přeruší normální běh programu
+    - **signál** neplatné situace (špatný vstup, neplatný stav)
+    - **syntaxe: `throw new ExceptionType("Error description");`**
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        public void UseItem(Item item)
+        {
+          // Kontrola vstupních parametrů
+          if (item == null)
+              
+              throw new ArgumentNullException(nameof(item), "Item cannot be null);
+
+          // Kontrola herní logiky
+          if (!inventory.Contains(item))
+              
+              throw new InvalidOperationException("Item not in inventory");
+
+          // Pokud vše OK, použij item
+          item.Use();
+        }
+        ```
+
+    <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
+
+  - **`finally`** <a id="finally"></a>
+
+    <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - kód se **vždy** provede (ať nastala chyba nebo ne)
+    - úklid zdrojů - zůstaly by **zaseknuté v paměti** = **MEMORY LEAK**
+
+        <span style="display: block; height: 0.1em;"></span> <!--"Nový řádek"-->
+
+      - **Příklady** zdrojů nutných k **uvolnění/uzavření:**
+
+        - 📁 **Soubory** - musí se zavřít
+        - 🌐 **Síťová spojení** - musí se ukončit
+        - 💾 **Databázové spojení** - musí se uzavřít
+        - 🎮 **Herní zdroje** - textury, audio musí být uvolněny
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Syntaxe:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        try
+        {
+          // Práce s něčím důležitým
+        }
+
+        catch (Exception ex)
+        {
+          // Ošetření chyby
+        }
+
+        finally
+        {
+          // TOTO se provede VŽDY!
+          CloseFile();
+        }
+        ```
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Příklady s MEMORY LEAK**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        // Klasičtější příklad MEMORY LEAK:
+
+        FileStream file = File.Open("save.dat");
+
+        try
+        {
+          // Práce se souborem
+          ReadGameData(file);
+        }
+
+        catch (Exception ex)
+        {
+          // Když nastane chyba, soubor se NEZAVŘE - ÚNIK PAMĚTI
+          Console.WriteLine($"Chyba: {ex.Message}");
+        }
+
+        -------------------------
+
+        // Musí se dopsat TOTO:
+        finally
+        {
+          // Soubor se VŽDY zavře!
+          file.Close(); 
+        }
+        ```
+
+        ```csharp
+        // Herní příklad MEMORY LEAK
+
+
+        public void LoadAllTextures()
+        {
+          foreach (string textureName in textureList)
+          {
+            try
+            {
+              // Načte texturu do paměti
+              Texture2D texture = LoadTexture(textureName);
+              textures.Add(texture);
+            }
+
+            catch
+            {
+              // Chyba při načítání textury - přeskoč na další
+              Console.WriteLine("Texture is not loaded");
+              continue;
+            }
+
+            // Ale, bez finally, by se po pár chybách sekala hra!
+
+            ----------------------------------------------
+
+            // Zatímco takto...
+
+            finally
+            {
+              // Se uklidí i PŘI CHYBĚ!
+              if (texture != null && !textures.Contains(texture))
+                  texture.Dispose();
+            }
+
+          }
+        }
+        ```
+
+        <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
+
+      - **Herní příklad:**
+
+        <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+        ```csharp
+        Texture2D texture = null;
+
+        try
+        {
+          // Načti texturu a použij ji pro hráče
+          texture = Content.Load<Texture2D>("hero.png");
+          player.SetTexture(texture);
+        }
+
+        catch (ContentLoadException ex)
+        {
+          // Když se nenačte textura, použij náhradní
+          Console.WriteLine($"Texture: {ex.Message} cannot be loaded!");
+          texture = CreateDefaultTexture();
+        }
+        
+        finally
+        {
+          // Ať už se textura načetla nebo ne
+          // stará se MUSÍ UKLIDIT!
+          if (oldTexture != null)
+              oldTexture.Dispose();
+        }
+        ```
 
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
@@ -331,7 +616,7 @@
     <span style="display: block; height: 1em;"></span> <!--"Nový řádek"-->
 
 - <a id="control-statemens"></a><span style="font-size: 18px;"> **Řídící příkazy (Control Statements / Jump statements)** </span>
-<span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+<span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
   - B
   - B
