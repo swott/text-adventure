@@ -362,7 +362,25 @@
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
-    - **nechytej výjimky, které neumíš vyřešit!**
+    - **nechytej (catch) výjimky, které neumíš vyřešit!**
+    - jak výjimku "vyřešíš", je **na tobě**
+    - z **některých** se program **dokáže vzpamatovat**
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - chyby při čtení souborů
+      - validace uživatelských požadavku
+      - a další
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+    - z **některých** se program **nevzpamatuje**
+
+      <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
+
+      - došla operační paměť
+      - nelze načíst kritickou knihovnu (library)
+      - a další
 
     <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
@@ -479,7 +497,8 @@
     <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
     - kód se **vždy** provede (ať nastala chyba nebo ne)
-    - úklid zdrojů - zůstaly by **zaseknuté v paměti** = **MEMORY LEAK** ⚠️
+    - **zabránění úniku** zdrojů - **RESOURCE LEAK** ⚠️
+    - **bezpečnost** - uvolnění zámků, spojení, souborů
 
         <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
 
@@ -487,9 +506,10 @@
 
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
-        - 📁 **Soubory** - musí se zavřít
-        - 🌐 **Síťová spojení** - musí se ukončit
-        - 💾 **Databázové spojení** - musí se uzavřít
+        - 📁 **Soubory** - musí se zavřít (nelze je pak otevřít)
+        - 🌐 **Síťová spojení** - musí se ukončit ("pořád online"")
+        - 💾 **Databázové spojení** - musí se uzavřít (jinak nelze zapisovat)
+        - 🔒 **Zámky a mutexy** - musí se zavřít (ochrana dat při vícenásobném přístupu)
         - 🎮 **Herní zdroje** - textury, audio musí být uvolněny
 
         <span style="display: block; height: 0.6em;"></span> <!--"Nový řádek"-->
@@ -518,38 +538,41 @@
 
         <span style="display: block; height: 0.4em;"></span> <!--"Nový řádek"-->
 
-      - **Příklady s MEMORY LEAK**
+      - **Příklady s RESOURCE LEAK**
 
         <span style="display: block; height: 0.3em;"></span> <!--"Nový řádek"-->
 
         ```csharp
-        // Klasičtější příklad MEMORY LEAK:
+        // ⬇️ Klasičtější příklad RESOURCE LEAK ⬇️
 
-        FileStream file = File.Open("save.dat");
+        FileStream file;
 
         try
         {
           // Práce se souborem
+          file = File.Open("save.dat");
           ReadGameData(file);
         }
-
         catch (Exception ex)
         {
-          // ⚠️ Když nastane chyba, soubor se NEZAVŘE - ÚNIK PAMĚTI ⚠️
+          // ⚠️ Když nastane chyba, soubor se nemusí zavřít - ÚNIK ZDROJŮ ⚠️
           Console.WriteLine($"Chyba: {ex.Message}");
+          
+          //Výjimku znovu vyhodíme a volající ji musí dále zpracovat 
+          throw ex;
         }
-        ---------------------------------------------------------------
         // Musí se dopsat TOTO:
         finally
         {
-          // Soubor se VŽDY zavře!
-          file.Close(); 
+          file.Close()
         }
+        // Kdyby následovalo
+        // file.Close()
+        // Při výjimce by k tomuto volání nedošlo
         ```
 
         ```csharp
-        // Herní příklad MEMORY LEAK
-
+        // ⬇️ Herní příklad RESOURCE LEAK ⬇️
 
         public void LoadAllTextures()
         {
