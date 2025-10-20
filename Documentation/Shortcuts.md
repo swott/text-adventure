@@ -22,7 +22,7 @@
 | `$` | `AltGr + ů` | Interpolace řetězců |
 | `%` | `Shift + =` | Operátor modulo (zbytek po dělení) |
 
-### Klávesové zkratky (Visual Studio)
+### Klávesové zkratky
 
 | Zkratka | Použití |
 |:----:|------------|
@@ -53,3 +53,5 @@
 |:----:|------------|
 | `Ctrl + /` | Rychlé přidání komentáře |
 | `Ctrl + K, V` | Náhled Markdown Preview |
+| `Ctrl + Shift, ú` | Fold (sbalení kusu kódu (heading, sorted/unsorted list)) |
+| `Ctrl + Shift, )` | Unfold (rozbalení kusu kódu (heading, sorted/unsorted list)) |
