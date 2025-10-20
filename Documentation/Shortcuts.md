@@ -22,7 +22,7 @@
 | `$` | `AltGr + ů` | Interpolace řetězců |
 | `%` | `Shift + =` | Operátor modulo (zbytek po dělení) |
 
-### Klávesové zkratky
+### Klávesové zkratky (Visual Studio)
 
 | Zkratka | Použití |
 |:----:|------------|
@@ -34,6 +34,10 @@
 | `Ctrl + Space` | Nabídka IntelliSense (doplnění kódu) |
 | `Ctrl + F` | Hledání v souboru |
 | `F12` | Přejít na definici (Když je v jiném souboru, otevře se) |
+| `Ctrl + M, O` | Sbalit všechny regiony |
+| `Ctrl + M, L` | Rozbalit všechny regiony |
+| `Alt + Enter` | Rychlé opravy (alternativa k Ctrl + .) |
+| `Ctrl + tečka ('.')` | Rychlé opravy (alternativa k Ctrl + .) |
 
 ## VS Code
 

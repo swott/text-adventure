@@ -9,5 +9,6 @@ namespace Adventure
         //public int d12;
         //public int d20;
         //public int d100;
+
     }
 }

@@ -545,30 +545,33 @@
         ```csharp
         // ⬇️ Klasičtější příklad RESOURCE LEAK ⬇️
 
-        FileStream file;
+        void ResourceLeak()
+        {
+          FileStream file;
 
-        try
-        {
-          // Práce se souborem
-          file = File.Open("save.dat");
-          ReadGameData(file);
-        }
-        catch (Exception ex)
-        {
-          // ⚠️ Když nastane chyba, soubor se nemusí zavřít - ÚNIK ZDROJŮ ⚠️
-          Console.WriteLine($"Chyba: {ex.Message}");
+          try
+          {
+            // Práce se souborem
+            file = File.Open("save.dat");
+            ReadGameData(file);
+          }
+          catch (Exception ex)
+          {
+            // ⚠️ Když nastane chyba, soubor se nemusí zavřít - ÚNIK ZDROJŮ ⚠️
+            Console.WriteLine($"Chyba: {ex.Message}");
           
-          //Výjimku znovu vyhodíme a volající ji musí dále zpracovat 
-          throw ex;
-        }
-        // Musí se dopsat TOTO:
-        finally
-        {
+            //Výjimku znovu vyhodíme a volající ji musí dále zpracovat 
+            throw ex;
+          }
+          // Musí se dopsat TOTO:
+          finally
+          {
           file.Close()
+          }
         }
-        // Kdyby následovalo
-        // file.Close()
-        // Při výjimce by k tomuto volání nedošlo
+          // Kdyby následovalo
+          // file.Close()
+          // Při výjimce by k tomuto volání nedošlo
         ```
 
         ```csharp
