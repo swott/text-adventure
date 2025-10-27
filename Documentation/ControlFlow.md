@@ -390,7 +390,7 @@
       
       // Prázdný catch!
       catch (Exception) { }
-      ---------------------------
+      /*---------------------------*/
       // Správně - ošetřuji jen konkrétní chyby
       try { LoadFile(); }
 
@@ -478,7 +478,7 @@
           // Kontrola vstupních parametrů
           if (item == null)
               
-              throw new ArgumentNullException(nameof(item), "Item cannot be null);
+              throw new ArgumentNullException(nameof(item), "Item cannot be null");
 
           // Kontrola herní logiky
           if (!inventory.Contains(item))
@@ -596,7 +596,7 @@
             }
 
             // ⚠️ Ale, bez finally, by se po pár chybách sekala hra! ⚠️
-            ------------------------------------------------------------
+            /*------------------------------------------------------------*/
             // Zatímco takto...
 
             finally
@@ -726,7 +726,7 @@
           enemy.UpdateAi();
           enemy.move();
         }
-        ----------------------------------------------
+        /*----------------------------------------------*/
         // Zpracuj předměty určité kvality
         foreach (Item item in player.inventory)
         {
@@ -784,7 +784,7 @@
             // Normální návrat s výsledkem
             return weapon.BaseDamage + player.Strength;
         }
-        ---------------------------------------------------------
+        /*---------------------------------------------------------*/
         // Metoda pro kontrolu, zda může hráč použít schopnost
         public bool CanUseAbility(Player player, Ability ability)
         {
