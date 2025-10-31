@@ -27,7 +27,7 @@ namespace Adventure
                 do
                 {
                     input = Console.ReadLine();
-
+                    
                     if (string.IsNullOrWhiteSpace(input))
                     {
                         Console.Write("Zkus psát znovu: ");
@@ -44,6 +44,7 @@ namespace Adventure
 
                 string cleanPrompt = prompt.Replace("\n", " ");
                 _debug.Log($"Input: '{input}' pro '{cleanPrompt}'");
+                _debug.Log($"Počet znaků: '{input.Length}");
 
                 return input;
             }

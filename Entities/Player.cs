@@ -18,9 +18,10 @@ namespace Adventure
         public static Player CreateNew(IInputUI input, IBaseOutputUI output, GameTextDB gameText)
         {
             string nickname = input.GetInput(gameText.CreateNicknameStart());
+            Console.WriteLine(nickname);
             output.ShowMessage(gameText.CreateNicknameEnd(nickname));
             string[] genders = ["Muž", "Žena"];
-            string gender = input.SelectOption(gameText.CreateGenderPrompt(), genders, numbersOnly: true);
+            string gender = input.SelectOption(gameText.CreateGenderPrompt(), genders/*, numbersOnly: true*/);
 
             // Temporary, jen na vidění v DEBUG logu
             BaseClass playerClass = new BaseClass(maxHP: 20, currentHP: 10, armor: 5);

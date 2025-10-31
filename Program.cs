@@ -1,9 +1,17 @@
 namespace Adventure
 {
+    using System.Runtime.InteropServices;
+
     internal static class MainClass
     {
+        
         public static void Main(string[] args)
         {
+            
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+
+
             /*
              * Nejprve vkládat data/služby
              * Pak UI služby (složka interface)
